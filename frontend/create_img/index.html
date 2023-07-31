@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Generation</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <style>
+      #overlay {
+        position: fixed;
+        display: none;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+        cursor: pointer;
+      }
+
+      #imageLoading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 50px;
+        color: white;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5 text-center">Image Generation</h1>
+      <div class="row justify-content-center mt-5">
+        <div class="col-6 text-center">
+          <div class="form-group">
+            <label for="inputText">Enter your description:</label>
+            <input
+              type="text"
+              class="form-control"
+              id="inputText"
+              placeholder="Enter text here"
+            />
+          </div>
+          <button id="submitBtn" class="btn btn-primary">Generate Image</button>
+        </div>
+      </div>
+      <div id="generatedImage" class="row justify-content-center mt-5">
+        <!-- Generated image will be inserted here -->
+      </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="overlay">
+      <div id="imageLoading">
+        <img src="spinner.gif" alt="Loading..." />
+      </div>
+    </div>
+
+    <script src="./create.js"></script>
+  </body>
+</html>

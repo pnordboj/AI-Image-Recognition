@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Image Recognition</title>
+    <link
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5 text-center">Image Recognition</h1>
+      <div class="row justify-content-center mt-5">
+        <div class="col-6 text-center">
+          <div class="upload-container">
+            <div id="uploadPreview">
+              <span class="upload-icon">&#43;</span>
+              <p class="upload-text">
+                Drag and Drop an Image Here or Click to Upload
+              </p>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <input
+              type="file"
+              id="imageUpload"
+              accept="image/*"
+              class="form-control-file"
+              style="display: none"
+            />
+          </div>
+          <button id="submitBtn" class="btn btn-primary" disabled>
+            Classify Image
+          </button>
+        </div>
+      </div>
+      <div id="predictions" class="row justify-content-center mt-5">
+        <!-- Predictions will be inserted here -->
+      </div>
+    </div>
+    <script src="../main.js"></script>
+  </body>
+</html>

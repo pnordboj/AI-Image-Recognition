@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Image Classification App</title>
+    <title>AI Services</title>
     <link
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
       rel="stylesheet"
@@ -10,38 +10,59 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="mt-5 text-center">Image Classification App</h1>
+      <h1 class="mt-5 text-center">AI Services</h1>
       <div class="row justify-content-center mt-5">
-        <div class="col-6 text-center">
-          <div class="upload-container">
-            <div id="uploadPreview">
-              <span class="upload-icon">&#43;</span>
-              <p class="upload-text">
-                Drag and Drop an Image Here or Click to Upload
-              </p>
+        <div class="col-4 text-center">
+          <div class="card">
+            <img
+              src="img/img_recognition_icon.jpg"
+              class="card-img-top"
+              alt="Image Recognition"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Image Recognition</h5>
+              <p class="card-text">Use AI to identify and classify images.</p>
+              <a href="image_recognition/index.html" class="btn btn-primary"
+                >Go to Image Recognition</a
+              >
             </div>
           </div>
-          <div class="form-group mt-3">
-            <input
-              type="file"
-              id="imageUpload"
-              accept="image/*"
-              class="form-control-file"
-              style="display: none"
+        </div>
+        <div class="col-4 text-center">
+          <div class="card">
+            <img
+              src="img/audio_to_text_icon.png"
+              class="card-img-top"
+              alt="Audio to Text"
             />
-            <!--<label for="imageUpload" class="btn btn-primary"
-              >Upload Image</label
-            >-->
+            <div class="card-body">
+              <h5 class="card-title">Audio to Text</h5>
+              <p class="card-text">
+                Use AI to transcribe audio files into text.
+              </p>
+              <a href="audio_to_text/index.html" class="btn btn-primary"
+                >Go to Audio to Text</a
+              >
+            </div>
           </div>
-          <button id="submitBtn" class="btn btn-primary" disabled>
-            Classify Image
-          </button>
+        </div>
+        <div class="col-4 text-center">
+          <div class="card">
+            <img
+              src="img/create_img_icon.png"
+              class="card-img-top"
+              alt="Image Generation"
+            />
+            <div class="card-body">
+              <h5 class="card-title">Image Generation</h5>
+              <p class="card-text">Use AI to generate images based on input.</p>
+              <a href="create_img/index.html" class="btn btn-primary"
+                >Go to Image Generation</a
+              >
+            </div>
+          </div>
         </div>
       </div>
-      <div id="predictions" class="row justify-content-center mt-5">
-        <!-- Predictions will be inserted here -->
-      </div>
     </div>
-    <script src="main.js"></script>
   </body>
 </html>
