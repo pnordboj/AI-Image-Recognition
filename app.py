@@ -8,6 +8,7 @@ import io
 import pytube
 from pytube import YouTube
 import moviepy.editor as mp
+from io import BytesIO
 import os
 
 import openai
@@ -76,6 +77,54 @@ def speechtotext():
     print("Result: " + transcript["text"])
 
     return {"transcript": transcript["text"]}
+
+
+@app.route("/generateimage", methods=["POST"])
+@cross_origin()
+def generateimage():
+    prompt = request.form.get("prompt")
+    if not prompt:
+        return "No prompt provided"
+    print("Generating image...")
+    response = openai.Image.create(
+        prompt=prompt,
+        n=1,
+        size="512x512",
+    )
+    print("Image generated.")
+    image_url = response["data"][0]["url"]
+    return {"image_url": image_url}
+
+
+@app.route("/texttospeech", methods=["POST"])
+@cross_origin()
+def texttospeech():
+    text = request.form.get("text")
+    if not text:
+        return "No text provided"
+    print("Generating speech...")
+
+    response = openai.Completion.create(
+        engine="davinci",
+        prompt=text,
+        temperature=0.9,
+        max_tokens=60,
+        top_p=1,
+        frequency_penalty=0,
+        presence_penalty=0.6,
+        stop=["\n", " Human:", " AI:"],
+    )
+
+    print("Speech generated.")
+
+    print("Saving speech to file...")
+
+    with open("speech.mp3", "wb") as f:
+        f.write(response["choices"][0]["text"].encode("utf-8"))
+
+    print("Speech saved.")
+
+    return "speech.mp3"
 
 
 if __name__ == "__main__":
