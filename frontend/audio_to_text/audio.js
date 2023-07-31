@@ -61,7 +61,6 @@ document.getElementById('submitBtn').addEventListener('click', async function ()
     const formData = new FormData();
     formData.append('file', audioFile);
     formData.append('youtube_url', youtubeUrl);
-    document.getElementById('spinner').style.display = 'block';
 
     await fetch('http://localhost:5000/speechtotext', {
         method: 'POST',
@@ -72,10 +71,8 @@ document.getElementById('submitBtn').addEventListener('click', async function ()
         .then(data => {
             console.log(data);
             document.getElementById('transcript').innerText = data.transcript;
-            document.getElementById('spinner').style.display = 'none';
         })
         .catch(error => {
             console.error('Error:', error);
-            document.getElementById('spinner').style.display = 'none';
         });
 });
