@@ -18,7 +18,7 @@ app = Flask(__name__)
 CORS(app)
 
 app.config["CORS_HEADERS"] = "Content-Type"
-openai.api_key = "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"
+openai.api_key = "xxx"
 
 model = tf.keras.applications.MobileNetV2(weights="imagenet")
 
